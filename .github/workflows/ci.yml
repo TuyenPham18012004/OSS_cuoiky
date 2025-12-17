@@ -1,0 +1,27 @@
+name: CI Docker Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Project 1 (NodeJS)
+        run: |
+          cd project1_node_mysql
+          docker compose build
+
+      - name: Build Project 2 (PHP)
+        run: |
+          cd project2_php_mysql
+          docker compose build
