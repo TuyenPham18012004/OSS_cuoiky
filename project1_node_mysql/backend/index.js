@@ -18,3 +18,9 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3000, () => console.log("Server running"));
+app.get("/", (req, res) => {
+  db.query("SELECT 1", (err) => {
+    if (err) return res.send("MySQL connection failed");
+    res.send("<h1>Bai KTra - DH52201741</h1>NodeJS + MySQL Docker OK");
+  });
+});
