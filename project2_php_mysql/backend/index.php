@@ -5,3 +5,4 @@ if ($mysqli->connect_error) {
 } else {
   echo "PHP + MySQL Docker OK";
 }
+
